@@ -3,6 +3,7 @@ package glesys
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"net/http"
 	"net/url"
 )
@@ -50,8 +51,8 @@ func NewClient(username, apiKey string, httpClient *http.Client) *Client {
 	return c
 }
 
-// NewGetRequest creates an API request.
-func (c *Client) NewRequest(method, path string) (*http.Request, error) {
+// NewRequest creates an API request.
+func (c *Client) NewRequest(method, path string, body io.Reader) (*http.Request, error) {
 	rel, err := url.Parse("/" + path)
 	if err != nil {
 		return nil, err
@@ -59,7 +60,7 @@ func (c *Client) NewRequest(method, path string) (*http.Request, error) {
 
 	u := c.BaseURL.ResolveReference(rel)
 
-	req, err := http.NewRequest(method, u.String(), nil)
+	req, err := http.NewRequest(method, u.String(), body)
 	if err != nil {
 		return nil, err
 	}
@@ -68,6 +69,10 @@ func (c *Client) NewRequest(method, path string) (*http.Request, error) {
 
 	req.Header.Add("Accept", "application/json")
 	req.Header.Add("User-Agent", c.UserAgent)
+
+	if method == "POST" {
+		req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
+	}
 
 	return req, nil
 }

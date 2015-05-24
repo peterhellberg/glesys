@@ -19,7 +19,7 @@ type ServerList struct {
 }
 
 func (c *Client) ServerList() (*ServerList, error) {
-	req, err := c.NewRequest("GET", "server/list")
+	req, err := c.NewRequest("GET", "server/list", nil)
 	if err != nil {
 		return nil, err
 	}
