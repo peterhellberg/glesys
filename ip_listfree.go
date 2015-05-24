@@ -1,9 +1,6 @@
 package glesys
 
-import (
-	"net/url"
-	"strings"
-)
+import "net/url"
 
 type IPListFree struct {
 	Response struct {
@@ -24,12 +21,11 @@ type IPListFree struct {
 }
 
 func (c *Client) IPListFree(ipversion, datacenter, platform string) (*IPListFree, error) {
-	v := url.Values{}
-	v.Set("ipversion", ipversion)
-	v.Set("datacenter", datacenter)
-	v.Set("platform", platform)
-
-	req, err := c.NewRequest("POST", "ip/listfree", strings.NewReader(v.Encode()))
+	req, err := c.PostRequest("ip/listfree", url.Values{
+		"ipversion":  {ipversion},
+		"datacenter": {datacenter},
+		"platform":   {platform},
+	})
 	if err != nil {
 		return nil, err
 	}
