@@ -6,6 +6,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 )
 
 // A Client communicates with the GleSYS API.
@@ -75,6 +76,16 @@ func (c *Client) NewRequest(method, path string, body io.Reader) (*http.Request,
 	}
 
 	return req, nil
+}
+
+// GetRequest creates a new GET request
+func (c *Client) GetRequest(path string) (*http.Request, error) {
+	return c.NewRequest("GET", path, nil)
+}
+
+// PostRequest creates a new POST request
+func (c *Client) PostRequest(path string, data url.Values) (*http.Request, error) {
+	return c.NewRequest("POST", path, strings.NewReader(data.Encode()))
 }
 
 // Do sends an API request and returns the API response. The API response is
