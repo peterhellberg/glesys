@@ -1,20 +1,30 @@
 package glesys
 
-import "time"
+import (
+	"encoding/json"
+	"time"
+)
+
+type ResponseStatus struct {
+	Code      int       `json:"code"`
+	Timestamp time.Time `json:"timestamp"`
+	Text      string    `json:"text"`
+}
+
+type ResponseDebug struct {
+	Input json.RawMessage `json:"input"`
+}
 
 type ServerList struct {
 	Response struct {
-		Status struct {
-			Code      int       `json:"code"`
-			Timestamp time.Time `json:"timestamp"`
-			Text      string    `json:"text"`
-		} `json:"status"`
+		Status  ResponseStatus `json:"status"`
 		Servers []struct {
 			ServerID   string `json:"serverid"`
 			Hostname   string `json:"hostname"`
 			Datacenter string `json:"datacenter"`
 			Platform   string `json:"platform"`
 		}
+		Debug ResponseDebug `json:"debug"`
 	} `json:"response"`
 }
 
