@@ -1,7 +1,6 @@
 package glesys
 
 import (
-	"fmt"
 	"net/url"
 	"strings"
 )
@@ -43,7 +42,7 @@ func (c *Client) IPListFree(ipversion, datacenter, platform string) (*IPListFree
 	}
 
 	if resp.StatusCode != 200 {
-		fmt.Println("Unexpected status")
+		return &listfree, ErrUnexpectedHTTPStatus
 	}
 
 	return &listfree, nil
