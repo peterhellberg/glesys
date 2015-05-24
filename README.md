@@ -44,7 +44,7 @@ I’ll (slowly) work my way through implementing the code for handling each modu
 
 ### ip
 
- - [ ] listfree
+ - [x] listfree
  - [ ] listown
  - [ ] details
  - [ ] take
