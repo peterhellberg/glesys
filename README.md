@@ -113,7 +113,7 @@ I’ll (slowly) work my way through implementing the code for handling each modu
 ### changelog
 
  - [x] api
- - [ ] controlpanel
+ - [x] controlpanel
 
 ### customer
 
