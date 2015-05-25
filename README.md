@@ -117,7 +117,7 @@ I’ll (slowly) work my way through implementing the code for handling each modu
 
 ### customer
 
- - [ ] contactinfo
+ - [x] contactinfo
 
 ### livechat
 
