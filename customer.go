@@ -4,7 +4,7 @@ import "net/url"
 
 type CustomerContactInfo struct {
 	Response struct {
-		Status      ResponseStatus `json:"status"`
+		Status      Status `json:"status"`
 		ContactInfo struct {
 			CustomerNumber string `json:"customernumber"`
 			Contact        struct {
@@ -29,7 +29,7 @@ type CustomerContactInfo struct {
 				SeparateInvoiceAddress string `json:"separateinvoiceaddress"`
 			} `json:"settings"`
 		} `json:"contactinfo"`
-		Debug ResponseDebug `json:"debug"`
+		Debug Debug `json:"debug"`
 	} `json:"response"`
 }
 

@@ -2,12 +2,12 @@ package glesys
 
 import "time"
 
-type ResponseStatus struct {
+type Status struct {
 	Code      int       `json:"code"`
 	Timestamp time.Time `json:"timestamp"`
 	Text      string    `json:"text"`
 }
 
-type ResponseDebug struct {
+type Debug struct {
 	Input map[string]interface{} `json:"input"`
 }

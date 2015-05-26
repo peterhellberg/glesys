@@ -3,8 +3,6 @@ package glesys
 import "testing"
 
 func TestIPListFree(t *testing.T) {
-	c := NewClient(username, apiKey, nil)
-
 	var (
 		ipversion  = "4"
 		datacenter = "Stockholm"

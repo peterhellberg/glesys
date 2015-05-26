@@ -6,8 +6,6 @@ import (
 )
 
 func TestCustomerContactInfo(t *testing.T) {
-	c := NewClient(username, apiKey, nil)
-
 	var (
 		customerNumber = "19454"
 		zipCode        = "12432"

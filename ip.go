@@ -4,7 +4,7 @@ import "net/url"
 
 type IPListFree struct {
 	Response struct {
-		Status ResponseStatus `json:"status"`
+		Status Status `json:"status"`
 		IPList struct {
 			IPVersion  int    `json:"ipversion"`
 			Datacenter string `json:"datacenter"`
@@ -16,7 +16,7 @@ type IPListFree struct {
 			} `json:"costperip"`
 			IPAddresses []string `json:"ipaddresses"`
 		} `json:"iplist"`
-		Debug ResponseDebug `json:"debug"`
+		Debug Debug `json:"debug"`
 	} `json:"response"`
 }
 
