@@ -20,6 +20,7 @@ type IPListFree struct {
 	} `json:"response"`
 }
 
+// IPListFree returns a a list of all ip adresses that are available and not used on any account or server.
 func (c *Client) IPListFree(ipversion, datacenter, platform string) (*IPListFree, error) {
 	req, err := c.PostRequest("ip/listfree", url.Values{
 		"ipversion":  {ipversion},

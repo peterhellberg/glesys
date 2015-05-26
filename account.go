@@ -42,6 +42,7 @@ type AccountInfo struct {
 	} `json:"response"`
 }
 
+// AccountInfo provides information about the currently logged in account.
 func (c *Client) AccountInfo() (*AccountInfo, error) {
 	req, err := c.GetRequest("account/info")
 	if err != nil {
