@@ -4,30 +4,30 @@ package glesys
 // server/list
 ///////////////////////////////////////////////////////////////////////////////
 
-type ServerList struct {
-	Response struct {
-		Status  Status `json:"status"`
-		Servers []struct {
-			ServerID   string `json:"serverid"`
-			Hostname   string `json:"hostname"`
-			Datacenter string `json:"datacenter"`
-			Platform   string `json:"platform"`
-		}
-		Debug Debug `json:"debug"`
-	} `json:"response"`
+type ServerListResponse struct {
+	Status  Status `json:"status"`
+	Servers []struct {
+		ServerID   string `json:"serverid"`
+		Hostname   string `json:"hostname"`
+		Datacenter string `json:"datacenter"`
+		Platform   string `json:"platform"`
+	}
+	Debug Debug `json:"debug"`
 }
 
-func (c *Client) ServerList() (*ServerList, error) {
+func (c *Client) ServerList() (*ServerListResponse, error) {
 	req, err := c.GetRequest("server/list")
 	if err != nil {
 		return nil, err
 	}
 
-	var res ServerList
+	var r struct {
+		Response ServerListResponse `json:"response"`
+	}
 
-	if _, err = c.Do(req, &res); err != nil {
+	if _, err = c.Do(req, &r); err != nil {
 		return nil, err
 	}
 
-	return &res, nil
+	return &r.Response, nil
 }

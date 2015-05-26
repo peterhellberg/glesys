@@ -1,11 +1,9 @@
 package glesys
 
 type ChangelogResponse struct {
-	Response struct {
-		Status    Status          `json:"status"`
-		Changelog []ChangelogItem `json:"changelog"`
-		Debug     Debug           `json:"debug"`
-	} `json:"response"`
+	Status    Status          `json:"status"`
+	Changelog []ChangelogItem `json:"changelog"`
+	Debug     Debug           `json:"debug"`
 }
 
 type ChangelogItem struct {
@@ -39,11 +37,13 @@ func (c *Client) getChangelog(section string) (*ChangelogResponse, error) {
 		return nil, err
 	}
 
-	var res ChangelogResponse
+	var r struct {
+		Response ChangelogResponse `json:"response"`
+	}
 
-	if _, err = c.Do(req, &res); err != nil {
+	if _, err = c.Do(req, &r); err != nil {
 		return nil, err
 	}
 
-	return &res, nil
+	return &r.Response, nil
 }

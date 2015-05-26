@@ -5,6 +5,10 @@ import (
 	"testing"
 )
 
+///////////////////////////////////////////////////////////////////////////////
+// customer/contactinfo
+///////////////////////////////////////////////////////////////////////////////
+
 func TestCustomerContactInfo(t *testing.T) {
 	var (
 		customerNumber = "19454"
@@ -18,17 +22,17 @@ func TestCustomerContactInfo(t *testing.T) {
 		t.Errorf(`unexpected error %v`, err)
 	}
 
-	if got, want := r.Response.Status.Code, 200; got != want {
-		t.Errorf(`r.Response.Status.Code = %#v, want %#v`, got, want)
+	if got, want := r.Status.Code, 200; got != want {
+		t.Errorf(`r.Status.Code = %#v, want %#v`, got, want)
 	}
 
-	if got, want := r.Response.ContactInfo.CustomerNumber, customerNumber; got != want {
-		t.Errorf(`r.Response.ContactInfo.CustomerNumber = %#v, want %#v`, got, want)
+	if got, want := r.ContactInfo.CustomerNumber, customerNumber; got != want {
+		t.Errorf(`r.ContactInfo.CustomerNumber = %#v, want %#v`, got, want)
 	}
 
-	contact := r.Response.ContactInfo.Contact
+	contact := r.ContactInfo.Contact
 
 	if got, want := contact.ZipCode, zipCode; got != want {
-		t.Errorf(`r.Response.ContactInfo.CustomerNumber = %#v, want %#v`, got, want)
+		t.Errorf(`contact.ZipCode = %#v, want %#v`, got, want)
 	}
 }
