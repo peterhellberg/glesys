@@ -195,9 +195,9 @@ I’ll (slowly) work my way through implementing the code for handling each modu
 
 ### api
 
- - [ ] maintenance
- - [ ] serviceinfo
- - [ ] listfunctions
+ - [x] maintenance
+ - [x] serviceinfo
+ - [x] listfunctions
 
 ### sshkey
 
