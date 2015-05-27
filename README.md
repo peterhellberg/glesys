@@ -17,7 +17,140 @@ go get -u github.com/peterhellberg/glesys
 
 I’ll (slowly) work my way through implementing the code for handling each module/endpoint in the GleSYS API.
 
-### server
+### [account](](https://github.com/GleSYS/API/wiki/functions_account)
+
+ - [ ] changepassword
+ - [x] info
+
+### [api](https://github.com/GleSYS/API/wiki/functions_api)
+
+ - [x] maintenance
+ - [x] serviceinfo
+ - [x] listfunctions
+
+### [archive](https://github.com/GleSYS/API/wiki/functions_archive)
+
+ - [ ] details
+ - [ ] delete
+ - [ ] list
+ - [ ] create
+ - [ ] changepassword
+ - [ ] resize
+ - [ ] changedescription
+ - [ ] allowedarguments
+
+### [changelog](https://github.com/GleSYS/API/wiki/functions_changelog)
+
+ - [x] api
+ - [x] controlpanel
+
+### [contactperson](https://github.com/GleSYS/API/wiki/functions_contactperson)
+
+ - [ ] list
+ - [ ] add
+ - [ ] edit
+ - [ ] delete
+
+### [customer](https://github.com/GleSYS/API/wiki/functions_customer)
+
+ - [x] contactinfo
+
+### [domain](https://github.com/GleSYS/API/wiki/functions_domain)
+
+ - [ ] list
+ - [ ] add
+ - [ ] register
+ - [ ] transfer
+ - [ ] renew
+ - [ ] setautorenew
+ - [ ] details
+ - [ ] available
+ - [ ] pricelist
+ - [ ] edit
+ - [ ] delete
+ - [ ] updaterecord
+ - [ ] listrecords
+ - [ ] addrecord
+ - [ ] deleterecord
+ - [ ] allowedarguments
+ - [ ] changenameservers
+ - [ ] legacywebhosting
+
+### [email](https://github.com/GleSYS/API/wiki/functions_email)
+
+ - [ ] overview
+ - [ ] globalquota
+ - [ ] list
+ - [ ] editaccount
+ - [ ] delete
+ - [ ] createaccount
+ - [ ] quota
+ - [ ] createalias
+ - [ ] editalias
+ - [ ] costs
+
+### [invoice](https://github.com/GleSYS/API/wiki/functions_invoice)
+
+ - [ ] allowedarguments
+ - [ ] billingperiod
+ - [ ] settings
+ - [ ] list
+ - [ ] next
+ - [ ] paymenthistory
+ - [ ] paybycard
+ - [ ] paybypaypal
+
+### [ip](https://github.com/GleSYS/API/wiki/functions_ip)
+
+ - [x] listfree
+ - [ ] listown
+ - [ ] details
+ - [ ] take
+ - [ ] release
+ - [ ] add
+ - [ ] remove
+ - [ ] setptr
+ - [ ] resetptr
+
+### [livechat](https://github.com/GleSYS/API/wiki/functions_livechat)
+
+ - [ ] newsession
+ - [ ] getmessages
+ - [ ] closesession
+ - [ ] postmessage
+ - [ ] status
+ - [ ] sessioninfo
+
+### [loadbalancer](https://github.com/GleSYS/API/wiki/functions_loadbalancer)
+
+ - [ ] list
+ - [ ] details
+ - [ ] create
+ - [ ] edit
+ - [ ] addfrontend
+ - [ ] editfrontend
+ - [ ] addbackend
+ - [ ] editbackend
+ - [ ] addtarget
+ - [ ] removetarget
+ - [ ] enabletarget
+ - [ ] disabletarget
+ - [ ] edittarget
+ - [ ] removebackend
+ - [ ] removefrontend
+ - [ ] destroy
+ - [ ] addcertificate
+ - [ ] removecertificate
+ - [ ] listcertificate
+
+### [paymentcard](https://github.com/GleSYS/API/wiki/functions_paymentcard)
+
+ - [ ] list
+ - [ ] delete
+ - [ ] edit
+ - [ ] add
+
+### [server](https://github.com/GleSYS/API/wiki/functions_server)
 
  - [x] list
  - [ ] details
@@ -42,148 +175,20 @@ I’ll (slowly) work my way through implementing the code for handling each modu
  - [ ] mountiso
  - [ ] addiso
 
-### ip
+### [sshkey](https://github.com/GleSYS/API/wiki/functions_sshkey)
 
- - [x] listfree
- - [ ] listown
- - [ ] details
- - [ ] take
- - [ ] release
  - [ ] add
+ - [ ] list
  - [ ] remove
- - [ ] setptr
- - [ ] resetptr
 
-### domain
-
- - [ ] list
- - [ ] add
- - [ ] register
- - [ ] transfer
- - [ ] renew
- - [ ] setautorenew
- - [ ] details
- - [ ] available
- - [ ] pricelist
- - [ ] edit
- - [ ] delete
- - [ ] updaterecord
- - [ ] listrecords
- - [ ] addrecord
- - [ ] deleterecord
- - [ ] allowedarguments
- - [ ] changenameservers
- - [ ] legacywebhosting
-
-### archive
-
- - [ ] details
- - [ ] delete
- - [ ] list
- - [ ] create
- - [ ] changepassword
- - [ ] resize
- - [ ] changedescription
- - [ ] allowedarguments
-
-### email
-
- - [ ] overview
- - [ ] globalquota
- - [ ] list
- - [ ] editaccount
- - [ ] delete
- - [ ] createaccount
- - [ ] quota
- - [ ] createalias
- - [ ] editalias
- - [ ] costs
-
-### invoice
-
- - [ ] allowedarguments
- - [ ] billingperiod
- - [ ] settings
- - [ ] list
- - [ ] next
- - [ ] paymenthistory
- - [ ] paybycard
- - [ ] paybypaypal
-
-### changelog
-
- - [x] api
- - [x] controlpanel
-
-### customer
-
- - [x] contactinfo
-
-### livechat
-
- - [ ] newsession
- - [ ] getmessages
- - [ ] closesession
- - [ ] postmessage
- - [ ] status
- - [ ] sessioninfo
-
-### account
-
- - [ ] changepassword
- - [x] info
-
-### paymentcard
-
- - [ ] list
- - [ ] delete
- - [ ] edit
- - [ ] add
-
-### contactperson
-
- - [ ] list
- - [ ] add
- - [ ] edit
- - [ ] delete
-
-### transaction
+### [transaction](https://github.com/GleSYS/API/wiki/functions_transaction)
 
  - [ ] list
  - [ ] cancel
  - [ ] start
  - [ ] acknowledge
 
-### vpn
-
- - [ ] listusers
- - [ ] createuser
- - [ ] deleteuser
- - [ ] edituser
-
-### loadbalancer
-
- - [ ] list
- - [ ] details
- - [ ] create
- - [ ] edit
- - [ ] addfrontend
- - [ ] editfrontend
- - [ ] addbackend
- - [ ] editbackend
- - [ ] addtarget
- - [ ] removetarget
- - [ ] enabletarget
- - [ ] disabletarget
- - [ ] edittarget
- - [ ] removebackend
- - [ ] removefrontend
- - [ ] destroy
- - [ ] addcertificate
- - [ ] removecertificate
- - [ ] listcertificate
-
-### user
+### [user](https://github.com/GleSYS/API/wiki/functions_user)
 
  - [ ] details
  - [ ] edit
@@ -193,17 +198,12 @@ I’ll (slowly) work my way through implementing the code for handling each modu
  - [ ] disabletwofactor
  - [ ] changepassword
 
-### api
+### [vpn](https://github.com/GleSYS/API/wiki/functions_vpn)
 
- - [x] maintenance
- - [x] serviceinfo
- - [x] listfunctions
-
-### sshkey
-
- - [ ] add
- - [ ] list
- - [ ] remove
+ - [ ] listusers
+ - [ ] createuser
+ - [ ] deleteuser
+ - [ ] edituser
 
 ## License (MIT)
 
