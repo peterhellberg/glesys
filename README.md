@@ -17,7 +17,7 @@ go get -u github.com/peterhellberg/glesys
 
 I’ll (slowly) work my way through implementing the code for handling each module/endpoint in the GleSYS API.
 
-### [account](](https://github.com/GleSYS/API/wiki/functions_account)
+### [account](https://github.com/GleSYS/API/wiki/functions_account)
 
  - [ ] changepassword
  - [x] info
