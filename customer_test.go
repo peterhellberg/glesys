@@ -19,7 +19,7 @@ func TestCustomerContactInfo(t *testing.T) {
 		v.Set("zipcode", zipCode)
 	})
 	if err != nil {
-		t.Errorf(`unexpected error %v`, err)
+		t.Fatalf(`unexpected error: %v`, err)
 	}
 
 	if got, want := r.Status.Code, 200; got != want {

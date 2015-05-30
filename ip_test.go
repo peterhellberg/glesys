@@ -15,7 +15,7 @@ func TestIPListFree(t *testing.T) {
 
 	r, err := c.IPListFree(ipversion, datacenter, platform)
 	if err != nil {
-		t.Errorf(`unexpected error %v`, err)
+		t.Fatalf(`unexpected error: %v`, err)
 	}
 
 	if got, want := r.Status.Code, 200; got != want {
