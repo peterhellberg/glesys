@@ -46,6 +46,10 @@ func TestAPIListFunctions(t *testing.T) {
 		t.Errorf(`r.Status.Code = %#v, want %#v`, got, want)
 	}
 
+	if len(r.Modules.Account) == 0 {
+		t.Fatalf(`empty r.Modules.Account`)
+	}
+
 	if got, want := r.Modules.Account[1].Function, "info"; got != want {
 		t.Errorf(`r.Modules.Account[1].Function = %#v, want %#v`, got, want)
 	}
