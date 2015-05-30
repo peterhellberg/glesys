@@ -7,6 +7,11 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"time"
+)
+
+var (
+	ErrUnexpectedHTTPStatus = fmt.Errorf("unexpected HTTP status")
 )
 
 // A Client communicates with the GleSYS API.
@@ -28,6 +33,18 @@ type Client struct {
 
 	// HTTP client used to communicate with the GleSYS API.
 	httpClient *http.Client
+}
+
+// Status contains the status fields for responses from the GleSYS API
+type Status struct {
+	Code      int       `json:"code"`
+	Timestamp time.Time `json:"timestamp"`
+	Text      string    `json:"text"`
+}
+
+// Debug contains the input variables sent to the GleSYS API
+type Debug struct {
+	Input map[string]interface{} `json:"input"`
 }
 
 // NewClient returns a new GleSYS API client.
