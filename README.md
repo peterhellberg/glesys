@@ -46,7 +46,7 @@ I’ll (slowly) work my way through implementing the code for handling each modu
 
 ### [contactperson](https://github.com/GleSYS/API/wiki/functions_contactperson)
 
- - [ ] list
+ - [x] list
  - [ ] add
  - [ ] edit
  - [ ] delete
