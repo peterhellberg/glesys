@@ -6,6 +6,7 @@ import "net/url"
 // customer/contactinfo
 ///////////////////////////////////////////////////////////////////////////////
 
+// CustomerContactInfoResponse contains the fields in a response from customer/contactinfo
 type CustomerContactInfoResponse struct {
 	Status      Status `json:"status"`
 	ContactInfo struct {
@@ -35,6 +36,7 @@ type CustomerContactInfoResponse struct {
 	Debug Debug `json:"debug"`
 }
 
+// CustomerContactInfo can list and change contact and invoicing information about this customer.
 func (c *Client) CustomerContactInfo(args ...func(*url.Values)) (*CustomerContactInfoResponse, error) {
 	data := &url.Values{}
 

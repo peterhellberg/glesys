@@ -6,6 +6,7 @@ import "encoding/json"
 // account/info
 ///////////////////////////////////////////////////////////////////////////////
 
+// AccountInfoResponse contains the fields in a response from account/info
 type AccountInfoResponse struct {
 	Status      Status `json:"status"`
 	AccountInfo struct {

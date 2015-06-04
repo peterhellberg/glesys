@@ -4,12 +4,14 @@ package glesys
 // contactperson/list
 ///////////////////////////////////////////////////////////////////////////////
 
+// ContactPersonListResponse contains the fields in a response from contactperson/list
 type ContactPersonListResponse struct {
 	Status         Status          `json:"status"`
 	ContactPersons []ContactPerson `json:"contactpersons"`
 	Debug          Debug           `json:"debug"`
 }
 
+// ContactPerson is the fields for a contact person
 type ContactPerson struct {
 	ID                    int    `json:"contactpersonid"`
 	Name                  string `json:"name"`
@@ -21,6 +23,7 @@ type ContactPerson struct {
 	ReceiveServiceNotices string `json:"receiveservicenotices"`
 }
 
+// ContactPersonList lists all the contact persons for this customer.
 func (c *Client) ContactPersonList() (*ContactPersonListResponse, error) {
 	req, err := c.GetRequest("contactperson/list")
 	if err != nil {

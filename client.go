@@ -11,6 +11,7 @@ import (
 )
 
 var (
+	// ErrUnexpectedHTTPStatus is the error that is returned on unexpected HTTP status
 	ErrUnexpectedHTTPStatus = fmt.Errorf("unexpected HTTP status")
 )
 

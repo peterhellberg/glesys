@@ -4,6 +4,7 @@ package glesys
 // server/list
 ///////////////////////////////////////////////////////////////////////////////
 
+// ServerListResponse contains the fields in a response from server/list
 type ServerListResponse struct {
 	Status  Status `json:"status"`
 	Servers []struct {
@@ -15,6 +16,7 @@ type ServerListResponse struct {
 	Debug Debug `json:"debug"`
 }
 
+// ServerList retrieves a list of servers on this account
 func (c *Client) ServerList() (*ServerListResponse, error) {
 	req, err := c.GetRequest("server/list")
 	if err != nil {

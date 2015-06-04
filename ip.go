@@ -6,6 +6,7 @@ import "net/url"
 // ip/listfree
 ///////////////////////////////////////////////////////////////////////////////
 
+// IPListFreeResponse contains the fields in a response from ip/listfree
 type IPListFreeResponse struct {
 	Status Status `json:"status"`
 	IPList struct {

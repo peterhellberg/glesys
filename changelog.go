@@ -1,11 +1,13 @@
 package glesys
 
+// ChangelogResponse contains the fields in a response from changelog/{api,controlpanel}
 type ChangelogResponse struct {
 	Status    Status          `json:"status"`
 	Changelog []ChangelogItem `json:"changelog"`
 	Debug     Debug           `json:"debug"`
 }
 
+// A ChangelogItem is an item in a changelog
 type ChangelogItem struct {
 	Version string `json:"version"`
 	Date    string `json:"date"`
@@ -19,6 +21,7 @@ type ChangelogItem struct {
 // changelog/api
 ///////////////////////////////////////////////////////////////////////////////
 
+// ChangelogAPI returns the changelog for the GleSYS API (https://api.glesys.com)
 func (c *Client) ChangelogAPI() (*ChangelogResponse, error) {
 	return c.getChangelog("api")
 }
@@ -27,6 +30,7 @@ func (c *Client) ChangelogAPI() (*ChangelogResponse, error) {
 // changelog/controlpanel
 ///////////////////////////////////////////////////////////////////////////////
 
+// ChangelogControlPanel returns the changelog for the GleSYS Control Panel (https://customer.glesys.com)
 func (c *Client) ChangelogControlPanel() (*ChangelogResponse, error) {
 	return c.getChangelog("controlpanel")
 }
