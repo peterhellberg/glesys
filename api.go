@@ -4,21 +4,22 @@ package glesys
 // api/maintenance
 ///////////////////////////////////////////////////////////////////////////////
 
-type APIMaintenance struct {
+// APIMaintenanceResponse contains the fields in a response from api/maintenance
+type APIMaintenanceResponse struct {
 	Status      Status        `json:"status"`
 	Maintenance []interface{} `json:"maintenance"`
 	Debug       Debug         `json:"debug"`
 }
 
 // APIMaintenance returns a list of GleSYS services that are in maintenance mode.
-func (c *Client) APIMaintenance() (*APIMaintenance, error) {
+func (c *Client) APIMaintenance() (*APIMaintenanceResponse, error) {
 	req, err := c.GetRequest("api/maintenance")
 	if err != nil {
 		return nil, err
 	}
 
 	var r struct {
-		Response APIMaintenance `json:"response"`
+		Response APIMaintenanceResponse `json:"response"`
 	}
 
 	if _, err = c.Do(req, &r); err != nil {
@@ -32,7 +33,8 @@ func (c *Client) APIMaintenance() (*APIMaintenance, error) {
 // api/serviceinfo
 ///////////////////////////////////////////////////////////////////////////////
 
-type APIServiceInfo struct {
+// APIServiceInfoResponse contains the fields in a response from api/serviceinfo
+type APIServiceInfoResponse struct {
 	Status      Status `json:"status"`
 	ServiceInfo struct {
 		Current []serviceInfoItem `json:"current"`
@@ -53,14 +55,15 @@ type serviceInfoItem struct {
 	} `json:"updates"`
 }
 
-func (c *Client) APIServiceInfo() (*APIServiceInfo, error) {
+// APIServiceInfo returns service information. This is also available on http://drift.glesys.se
+func (c *Client) APIServiceInfo() (*APIServiceInfoResponse, error) {
 	req, err := c.GetRequest("api/serviceinfo")
 	if err != nil {
 		return nil, err
 	}
 
 	var r struct {
-		Response APIServiceInfo `json:"response"`
+		Response APIServiceInfoResponse `json:"response"`
 	}
 
 	if _, err = c.Do(req, &r); err != nil {
@@ -74,7 +77,8 @@ func (c *Client) APIServiceInfo() (*APIServiceInfo, error) {
 // api/listfunctions
 ///////////////////////////////////////////////////////////////////////////////
 
-type APIListFunctions struct {
+// APIListFunctionsResponse contains the fields in a response from api/listfunctions
+type APIListFunctionsResponse struct {
 	Status  Status `json:"status"`
 	Modules struct {
 		Account       []functionDoc `json:"account"`
@@ -104,14 +108,15 @@ type functionDoc struct {
 	Documentation string `json:"documentation"`
 }
 
-func (c *Client) APIListFunctions() (*APIListFunctions, error) {
+// APIListFunctions lists all functions in the GleSYS API.
+func (c *Client) APIListFunctions() (*APIListFunctionsResponse, error) {
 	req, err := c.GetRequest("api/listfunctions")
 	if err != nil {
 		return nil, err
 	}
 
 	var r struct {
-		Response APIListFunctions `json:"response"`
+		Response APIListFunctionsResponse `json:"response"`
 	}
 
 	if _, err = c.Do(req, &r); err != nil {
