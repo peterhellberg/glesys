@@ -86,12 +86,14 @@ func (c *Client) ContactPersonAdd(args ...func(*url.Values)) (*ContactPersonResp
 // contactperson/edit
 ///////////////////////////////////////////////////////////////////////////////
 
-func (c *Client) ContactPersonEdit(args ...func(*url.Values)) (*ContactPersonResponse, error) {
+func (c *Client) ContactPersonEdit(id string, args ...func(*url.Values)) (*ContactPersonResponse, error) {
 	data := &url.Values{}
 
 	for _, f := range args {
 		f(data)
 	}
+
+	data.Set("contactpersonid", id)
 
 	req, err := c.PostRequest("contactperson/edit", *data)
 	if err != nil {

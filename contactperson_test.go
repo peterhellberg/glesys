@@ -26,12 +26,7 @@ func TestContactPersonList(t *testing.T) {
 ///////////////////////////////////////////////////////////////////////////////
 
 func TestContactPersonEdit(t *testing.T) {
-	var (
-		contactPersonID = "17008"
-	)
-
-	r, err := c.ContactPersonEdit(func(v *url.Values) {
-		v.Set("contactpersonid", contactPersonID)
+	r, err := c.ContactPersonEdit("17008", func(v *url.Values) {
 		v.Set("name", "From test!")
 	})
 	if err != nil {
