@@ -47,9 +47,9 @@ I’ll (slowly) work my way through implementing the code for handling each modu
 ### [contactperson](https://github.com/GleSYS/API/wiki/functions_contactperson)
 
  - [x] list
- - [ ] add
- - [ ] edit
- - [ ] delete
+ - [x] add
+ - [x] edit
+ - [x] delete
 
 ### [customer](https://github.com/GleSYS/API/wiki/functions_customer)
 
