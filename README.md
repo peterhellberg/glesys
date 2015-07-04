@@ -190,6 +190,8 @@ I’ll (slowly) work my way through implementing the code for handling each modu
 
 ### [user](https://github.com/GleSYS/API/wiki/functions_user)
 
+These functions requires you to be logged in as a user. User credentials from user/login
+
  - [ ] details
  - [ ] edit
  - [ ] login
